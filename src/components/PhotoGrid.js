@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import axios from 'axios';
+import PhotoCard from "./PhotoCard";
 
 export default function PhotoGrid() {
     const [photoData, setPhotoData] = useState([]);
@@ -18,19 +19,14 @@ export default function PhotoGrid() {
 
     return (
         <div className="photo">
-            {photoData.map((item, index) => {
-                return (
+                <p>
                     <PhotoCard
-                    key={index}
-                    title={item.title}
-                    date={item.date}
-                    hdurl={item.hdurl}
-                    explanation={item.explanation}
+                    title={photoData.title}
+                    date={photoData.date}
+                    hdurl={photoData.hdurl}
+                    explanation={photoData.explanation}
                     />
-                    
-
-                );
-            })}
+                </p>
         </div>
     )
 }
